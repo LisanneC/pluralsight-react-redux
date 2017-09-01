@@ -1,10 +1,13 @@
 import React, {PropTypes} from 'react';
 import { Link, IndexLink } from 'react-router';
 
+
 const Header = () => {
   return (
     <nav>
       <IndexLink to="/" activeClassName="active">Home</IndexLink>
+      { " | "}
+      <Link to="/courses" active="active">Courses</Link>
       { " | "}
       <Link to="/about" active="active">About</Link>
     </nav>
