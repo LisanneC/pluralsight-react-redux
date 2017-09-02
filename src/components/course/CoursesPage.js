@@ -21,7 +21,7 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.dispatch(courseActions.createCourse(this.state.course)); //dispatching a action
+    this.props.createCourse(this.state.course); //dispatching a action
   }
 
 courseRow(course, index) {
@@ -29,7 +29,6 @@ courseRow(course, index) {
 }
 
   render() {
-    debugger;
     return(
       <div>
         <h1>Courses</h1>
@@ -51,15 +50,20 @@ courseRow(course, index) {
 
 // solve linting error 'is missing in props validation'
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  courses: PropTypes.array.isRequired,
+  createCourse: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
-  debugger;
   return {
     courses: state.courses //see reducer propety name
   };
 }
 
-export default connect(mapStateToProps)(CoursesPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
