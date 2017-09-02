@@ -1,2 +1,2 @@
 // using constant to avoid typos
-export const CREATE_COURSE = 'CREATE_COURSE';
+export const LOAD_COURSES_SUCCES = 'LOAD_COURSES_SUCCES';
