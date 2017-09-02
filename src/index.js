@@ -5,10 +5,12 @@ import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router'; //browserHistory to handle history in React Router (clean URL)
 import routes from './routes';
+import {loadCourses} from './actions/courseActions';
 import './styles/styles.css'; // Webpack can import CSS files too!
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore();
+store.dispatch(loadCourses()); // requires no server rendering
 
 render(
   <Provider store={store}>
